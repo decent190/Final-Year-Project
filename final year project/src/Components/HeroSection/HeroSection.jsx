@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import image from '../../assets/image.png'; 
 import image2 from '../../assets/image 2.png'; 
 import image3 from '../../assets/image 3.png'; 
@@ -30,7 +30,7 @@ const HeroSection = () => {
               <div className='text-center mt-4 pb-5'>
                 <h1 className='text-white'>Code the fun way</h1>
                 <p className='mt-5 mx-auto text-white'>Empowering kids to become tech creators through fun, interactive coding lessons. Building problem-solving skills, creativity, and confidence to shape the tech leaders of tomorrow!</p>
-                <button className='btn bg-white fw-bold mt-5 px-4'>Get Started</button>
+                 <Link to="/signup" className="btn bg-white fw-bold mt-5 px-4 text-dark text-decoration-none">Get Started</Link>
               </div>
             </div>
           </div>
@@ -186,7 +186,7 @@ const HeroSection = () => {
               <div className='text-center mt-4 pb-5'>
                 <h1 className='text-dark'>join us now!!!</h1>
                 <p className='mt-5 mx-auto text-dark fs-5'>If you've made it this far, you must be at least a little curious. Sign up and take the first step toward your goals</p>
-                <button className='btn bg-success fw-bold mt-5 px-4'>Sign Up</button>
+                <Link to="/signup" className="btn bg-success fw-bold mt-5 px-4 text-decoration-none">Sign Up</Link>
               </div>
             </div>
           </div>

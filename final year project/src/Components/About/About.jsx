@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import image15 from '../../assets/image15.png'; 
 import image16 from '../../assets/image16.png'; 
 import image17 from '../../assets/image17.png'; 
@@ -59,7 +60,7 @@ const About = () => {
                 Connect with peers, share your projects, and get inspired by what others are building. Together, we’ll unlock endless possibilities and shape the future with code.</p>
             </div>
              <div className='text-center pb-5'>
-             <button className='text-white ' style={{ backgroundColor: "#171728", borderRadius: "8px", padding: "10px 20px", border: "none", fontWeight:"bold" }}> Get Started</button>
+             <Link to="/signup"className='text-white  text-decoration-none' style={{ backgroundColor: "#171728", borderRadius: "8px", padding: "10px 20px", border: "none", fontWeight:"bold" }}>Get Started</Link>
              </div>
              <div>
         <Footer />
