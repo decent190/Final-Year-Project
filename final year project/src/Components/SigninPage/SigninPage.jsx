@@ -6,33 +6,33 @@ const SigninPage = () => {
   const [usernameOrEmail, setUsernameOrEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(''); // State for success message
   const navigate = useNavigate();
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
-  setError('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    setSuccess('');
 
-  if (!usernameOrEmail.trim() || !password.trim()) {
-    setError('Please provide an email or username and a password');
-    return;
-  }
-
-  console.log('Sending data to backend:', { usernameOrEmail, password }); // Debugging log
-
-  try {
-    const response = await axios.post('http://localhost:3000/api/auth/signin', {
-      usernameOrEmail,
-      password,
-    });
-    if (response.status === 200) {
-      alert('Login successful');
-      navigate('/');
+    if (!usernameOrEmail.trim() || !password.trim()) {
+      setError('Please provide an email or username and a password');
+      return;
     }
-  } catch (err) {
-    console.error('Error from backend:', err.response?.data); // Debugging log
-    setError(err.response?.data?.message || 'Login failed');
-  }
-};
+
+    try {
+      const response = await axios.post('http://localhost:3000/api/auth/signin', {
+        usernameOrEmail,
+        password,
+      });
+      if (response.status === 200) {
+        setSuccess('Login successful! Redirecting...');
+        setTimeout(() => navigate('/'), 2000); // Redirect after 2 seconds
+      }
+    } catch (err) {
+      console.error('Error from backend:', err.response?.data);
+      setError(err.response?.data?.message || 'Login failed');
+    }
+  };
 
   return (
     <div className='container d-flex justify-content-center align-items-center' style={{ minHeight: '100vh' }}>
@@ -58,6 +58,7 @@ const SigninPage = () => {
             />
           </div>
           {error && <p className="text-danger">{error}</p>}
+          {success && <p className="text-success">{success}</p>}
           <button type="submit" className="btn btn-dark w-100 mt-3">Login</button>
           <div className='mt-3 text-center'>
             <p>Don’t have an account? <Link to="/signup">Register</Link></p>

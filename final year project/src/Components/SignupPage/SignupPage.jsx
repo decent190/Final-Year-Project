@@ -4,21 +4,23 @@ import axios from 'axios';
 import image10 from '../../assets/image 10.png';
 
 const SignupPage = () => {
-  const [name, setName] = useState(''); // New field for the user's name
-  const [usernameOrEmail, setUsernameOrEmail] = useState(''); // Combined field for email or username
+  const [name, setName] = useState('');
+  const [usernameOrEmail, setUsernameOrEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState(''); // State for success message
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-  
+    setSuccess('');
+
     if (!usernameOrEmail.trim() || !password.trim()) {
       setError('Please provide an email or username and a password');
       return;
     }
-  
+
     try {
       const response = await axios.post('http://localhost:3000/api/auth/signup', {
         name,
@@ -26,19 +28,20 @@ const SignupPage = () => {
         password,
       });
       if (response.status === 201) {
-        alert('Signup successful');
-        navigate('/login');
+        setSuccess('Signup successful! You can now log in.');
+        setTimeout(() => navigate('/login'), 2000); // Redirect after 2 seconds
       }
     } catch (err) {
-      console.error('Error from backend:', err.response?.data); // Debugging log
+      console.error('Error from backend:', err.response?.data);
       setError(err.response?.data?.message || 'Signup failed');
     }
   };
+
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
       <div className='card mt-5' style={{ backgroundColor: "#171728", borderRadius: "10px" }}>
         <div className='my-5 mx-3 row' style={{ backgroundColor: "#ffffff", borderRadius: "20px" }}>
-          <div className='col-lg-6'>
+          <div className='col-lg-6 w-50 flex justify-content-center align-items-center'>
             <img src={image10} alt="Signup" className="img-fluid w-75 ms-4 py-4" />
           </div>
           <div className='col-lg-6'>
@@ -74,6 +77,7 @@ const SignupPage = () => {
                   />
                 </div>
                 {error && <p className="text-danger">{error}</p>}
+                {success && <p className="text-success">{success}</p>}
                 <button type="submit" className="btn btn-dark w-100 mt-4">Register</button>
                 <div className='mt-3'>
                   <p>Already have an account? <Link to="/login">Login</Link></p>

@@ -186,6 +186,7 @@ const HeroSection = () => {
               <div className='text-center mt-4 pb-5'>
                 <h1 className='text-dark'>join us now!!!</h1>
                 <p className='mt-5 mx-auto text-dark fs-5'>If you've made it this far, you must be at least a little curious. Sign up and take the first step toward your goals</p>
+
                 <Link to="/signup" className="btn bg-success fw-bold mt-5 px-4 text-decoration-none">Sign Up</Link>
               </div>
             </div>
