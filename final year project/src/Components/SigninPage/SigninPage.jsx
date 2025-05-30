@@ -6,7 +6,7 @@ const SigninPage = () => {
   const [usernameOrEmail, setUsernameOrEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState(''); // State for success message
+  const [success, setSuccess] = useState(''); 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -26,7 +26,7 @@ const SigninPage = () => {
       });
       if (response.status === 200) {
         setSuccess('Login successful! Redirecting...');
-        setTimeout(() => navigate('/'), 2000); // Redirect after 2 seconds
+        setTimeout(() => navigate('/'), 2000); 
       }
     } catch (err) {
       console.error('Error from backend:', err.response?.data);

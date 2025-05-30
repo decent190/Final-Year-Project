@@ -9,11 +9,16 @@ import Footer from "../Footer/Footer";
 
 
 const About = () => {
-  return (
+return (
     <div>
         <div style={{backgroundImage: `url(${image15})`,backgroundSize:'cover',backgroundPosition:'center', height:'100vh'}} >
             <div className='p-5 text-white text-center justify-content-center  align-items-center'>
-           <h1  className='mx-auto py-5'>Where Creativity Meets Technology—Learn. Create. Innovate</h1>
+           <h1  className='mx-auto py-5'>Empowering young minds through interactive coding experience. learn Create. innovate</h1>
+           <p className='fs-2 mx-auto w-75'>Unlock the world of web development with fun, structured lessons designed just for kids.
+           Building tomorrow’s tech leaders, one line of code at a time.”</p>
+           <div className='text-center p-5'>
+           <Link to="/signup"className='text-white  text-decoration-none' style={{ backgroundColor: "black", borderRadius: "8px", padding: "10px 20px", border: "none", fontWeight:"bold" }}>Get Started</Link>
+           </div>
             </div>
         </div>
             <div className='p-5 text-black ' >

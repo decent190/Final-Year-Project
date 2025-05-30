@@ -9,11 +9,11 @@ const app = express();
 
 const port = process.env.PORT || 5000; 
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 
-// MongoDB Connection
+
 mongoose.connect(process.env.MONGO_URL)
   .then(() => console.log('Database connected'))
   .catch((err) => {
@@ -21,14 +21,14 @@ mongoose.connect(process.env.MONGO_URL)
     process.exit(1);
   });
 
-// Routes
-app.use('/api/auth', userRouter); // Ensure this is correct
+
+app.use('/api/auth', userRouter); 
 
 app.get('/', (req, res) => {
   res.send('Welcome to the API');
 });
 
-// Start Server
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });

@@ -8,7 +8,7 @@ const SignupPage = () => {
   const [usernameOrEmail, setUsernameOrEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [success, setSuccess] = useState(''); // State for success message
+  const [success, setSuccess] = useState(''); 
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -29,7 +29,7 @@ const SignupPage = () => {
       });
       if (response.status === 201) {
         setSuccess('Signup successful! You can now log in.');
-        setTimeout(() => navigate('/login'), 2000); // Redirect after 2 seconds
+        setTimeout(() => navigate('/login'), 2000);
       }
     } catch (err) {
       console.error('Error from backend:', err.response?.data);
