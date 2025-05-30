@@ -41,7 +41,7 @@ const SignupPage = () => {
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
       <div className='card mt-5' style={{ backgroundColor: "#171728", borderRadius: "10px" }}>
         <div className='my-5 mx-3 row' style={{ backgroundColor: "#ffffff", borderRadius: "20px" }}>
-          <div className='col-lg-6 w-50 flex justify-content-center align-items-center'>
+          <div className='col-lg-6  flex justify-content-center align-items-center'>
             <img src={image10} alt="Signup" className="img-fluid w-75 ms-4 py-4" />
           </div>
           <div className='col-lg-6'>
