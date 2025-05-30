@@ -22,7 +22,9 @@ const SignupPage = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3000/api/auth/signup', {
+       
+
+      const response = await axios.post('https://final-year-project-4-c46q.onrender.com/api/auth/signup', {
         name,
         usernameOrEmail,
         password,
